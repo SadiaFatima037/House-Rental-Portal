@@ -1,3 +1,6 @@
+<html>
+<body>
+<a href="Homepage.html">Homepage</a>
 <?php
 $dhost='localhost';
 $duser='root';
@@ -13,10 +16,9 @@ $dpass='';
    $retval = mysqli_query( $conn,$sql );
    
    
-   while($row = mysqli_fetch_array($retval)) {
+   while($row = mysqli_fetch_array($retval)) { if($row['Approval']=='0'){
 ?>
-<html>
-<body>
+
 <h1> Personal Details</h1>
 <h4> Name of the owner  :<?php echo $row['name']  ?> </h4>
 <h3> Property Details</h4>
@@ -26,15 +28,15 @@ $dpass='';
  <h4>Covered Area :<?php echo $row['areaper']?></h4>
   Property Proof : 
  <br><br>
-  <img src="<?php echo $row['propproof']?>" height=100 width=100> 
+  <img src="<?php echo $row['propproof']?>" height="100" width="100"> 
   <br><br>
   <pre>
  <b>Images</b>
-  <img src="<?php echo $row['img1']?>" height=100 width=100> 
+  <img src="<?php echo $row['img1']?>" height="100" width="100"> 
   <br>
-  <img src="<?php echo $row['img2']?>" height=100 width=100> 
+  <img src="<?php echo $row['img2']?>" height="100" width="100"> 
   <br>
-  <img src="<?php echo $row['img2']?>" height=100 width=100> 
+  <img src="<?php echo $row['img2']?>" height="100" width="100"> 
   <br></pre>
 
    <form method="post" action="check.php"><input name="id" value="<?php echo $row['id'] ?>" type="hidden"><input type="submit"></form>
@@ -44,5 +46,5 @@ $dpass='';
 </html>
 
 <?php
-   }
+   }}
 ?>

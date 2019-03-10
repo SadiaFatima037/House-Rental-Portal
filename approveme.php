@@ -30,7 +30,8 @@ function myFunction(){
    
    
    $row = mysqli_fetch_array($retval);
-   while($row['Approval']=='1') {
+   while($row = mysqli_fetch_array($retval))
+	    { if($row['Approval']=='1'){
 	   ?>
 	<div id='card'>
 <div class='slideshow-container'>
@@ -56,19 +57,20 @@ function myFunction(){
   <span class='dot' onclick="currentSlide(2)"></span> 
   <span class='dot' onclick="currentSlide(3)"></span> 
 </div> <br> ".
-	  
-	  
+			<img src="<?php echo $row['img3']?>" style="width:100% height=100%">
+			
 			name : <?php echo $row['name']?> <br>
 			Details : <?php echo $row['details']?> <br>
 			Type : <?php echo $row['type']?> <br>
 			
 			Locality : <?php echo $row['locality']?> <br>
-			Address : <?php echo $row['address']?> <br>
+		Address : <?php echo $row['address'] ?> <br>
 	 
 
 	</div>;
 	<?php
    }
+		}
    
   
   
